@@ -33,6 +33,7 @@
             <!-- Current: "bg-gray-900 text-white", Default: " hover:bg-gray-700 hover:text-white" -->
             <a href="/" class="{{ request() -> is('/') ? 'bg-gray-900 text-white' : 'text-gray-300' }} rounded-md  px-3 py-2 text-sm font-medium " aria-current="page">Home</a>
             <a href="/blog" class="{{ request() -> is('blog*') ? 'bg-gray-900 text-white' : 'text-gray-300' }} rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Blog</a>
+            <a href="/category" class="{{ request() -> is('category*') ? 'bg-gray-900 text-white' : 'text-gray-300' }} rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Category</a>
             <a href="/about" class="{{ request() -> is('about') ? 'bg-gray-900 text-white' : 'text-gray-300' }} rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
             <a href="/contact" class="{{ request() -> is('contact') ? 'bg-gray-900 text-white' : 'text-gray-300' }} rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
           </div>
