@@ -8,10 +8,9 @@ use Illuminate\Http\Request;
 class AuthorController extends Controller
 {
     public function show(User $user) {
-        return view('author', [
-            'title' => 'User Posts',
-            'posts' => $user->posts,
-            'author' => $user->name
+        return view('posts', [
+            'title' => "Post By Author: $user->name",
+            'posts' => $user->posts->load('category', 'user'),
         ]);
     }
 }
