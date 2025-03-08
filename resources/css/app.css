@@ -10,3 +10,7 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+.bayang {
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
+}
