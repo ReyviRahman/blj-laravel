@@ -33,6 +33,7 @@ Route::get('/author/{user:username}', [AuthorController::class, 'show']);
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/welcome', function () {
     return view('welcome');
