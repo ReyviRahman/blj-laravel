@@ -8,7 +8,7 @@
         @foreach ($categories as $category)
           <li>
             <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 hover:text-gray-600">
-              <a href="/category/{{ $category->slug }}">
+              <a href="/blog?category={{ $category->slug }}">
                 {{ $category->name }}
               </a>
             </h3>
