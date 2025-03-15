@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -42,6 +43,12 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 
+// Route::get('/dashboard/posts', function () {
+//     return view('dashboard.posts');
+// });
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
+
+Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
