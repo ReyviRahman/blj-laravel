@@ -18,7 +18,7 @@
                 </a>
             </li>
             <li>
-                <a href="/dashboard/posts">
+                <a href="/dashboard/posts" class="{{ request() -> is('dashboard/posts*') ? 'bg-gray-900 text-white!' : '' }}">
                     <iconify-icon icon="mage:email" class="menu-icon"></iconify-icon>
                     <span>My Posts</span>
                 </a>

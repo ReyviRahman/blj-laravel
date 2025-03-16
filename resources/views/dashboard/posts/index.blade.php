@@ -1,6 +1,7 @@
 @extends('dashboard.layouts.layout')
 
 @section('content')
+<a href="/dashboard/posts/create" class="bg-[#4F959D] rounded text-white px-3 py-1 font-semibold mb-5">Create New Post</a>
 <table class="w-full overflow-x-auto table-auto border-collapse border border-gray-400 rounded-lg">
   <thead class="bg-gray-200!">
     <tr>
