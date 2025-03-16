@@ -12,10 +12,9 @@
     <a href="/dashboard/posts" class="bg-[#E52020] rounded flex pe-2 font-semibold"><iconify-icon icon="material-symbols:scan-delete-outline-rounded" width="24" height="24"></iconify-icon> Delete</a>
   </div>
   
-  
   <div class="flex flex-col mt-5 mb-5">
     <img src="https://picsum.photos/500/300?grayscale" alt="..." class="max-h-100 rounded object-fill">
   </div>
-  <p class="mt-2">{{ $post->body }}</p>
+  {!! $post->body !!}
 </article>
 @endsection

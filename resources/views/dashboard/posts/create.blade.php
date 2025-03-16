@@ -13,20 +13,26 @@
         <div class="sm:col-span-3">
           <label for="title" class="block text-sm/6 font-medium text-gray-900">Title</label>
           <div class="mt-2">
-            <input type="text" name="title" id="title" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+            <input type="text" name="title" id="title" value="{{ old('title') }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 @error('title') !outline-red-500 @enderror ">
           </div>
+          @error('title') 
+            <span class="text-red-500 text-sm">{{ $message }}</span>
+          @enderror
         </div>
 
         <div class="sm:col-span-3">
           <label for="slug" class="block text-sm/6 font-medium text-gray-900">Slug</label>
           <div class="mt-2">
-            <input type="text" name="slug" id="slug" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+            <input type="text" name="slug" id="slug" value="{{ old('slug') }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 @error('slug') !outline-red-500 @enderror">
           </div>
+          @error('slug') 
+            <span class="text-red-500 text-sm">{{ $message }}</span>
+          @enderror
         </div>
 
         <div class="col-span-full">
           <label id="listbox-label" class="block text-sm/6 font-medium text-gray-900">Category</label>
-          <div x-data="{ isOpen: false, selected: 'Category', nilai:'' }" class="relative mt-2">
+          <div x-data="{ isOpen: false, selected: '{{ old('category_name', $categories->first()->name) }}', nilai: '{{ old('category_id', $categories->first()->id) }}' }" class="relative mt-2">
             <button type="button" @click="isOpen = !isOpen" class="grid w-full cursor-default grid-cols-1 rounded-md bg-white py-1.5 pr-2 pl-3 text-left text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
               <span class="col-start-1 row-start-1 flex items-center gap-1 pr-6 ps-2">
                 <iconify-icon icon="material-symbols:category-outline" width="24" height="24"></iconify-icon>
@@ -46,14 +52,18 @@
               </li>
               @endforeach
             </ul>
-            <input type="hidden" name="category" x-model="nilai">
+            <input type="hidden" name="category_id" x-model="nilai">
+            <input type="hidden" name="category_name" x-model="selected">
           </div>
         </div>
 
         <div class="col-span-full">
           <label for="body" class="block text-sm/6 font-medium text-gray-900">Body</label>
-          <input id="body" type="hidden" name="body">
+          <input id="body" type="hidden" name="body" value="{{ old('body') }}">
           <trix-editor input="body"></trix-editor>
+          @error('body') 
+            <span class="text-red-500 text-sm">{{ $message }}</span>
+          @enderror
         </div>
 
         <div class="col-span-full">

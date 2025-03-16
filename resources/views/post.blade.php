@@ -13,6 +13,6 @@
   <div class="flex flex-col mt-5 mb-5">
     <img src="https://picsum.photos/500/300?grayscale" alt="..." class="max-h-100 rounded object-fill">
   </div>
-  <p class="mt-2">{{ $post->body }}</p>
+  <p class="mt-2">{!! $post->body !!}</p>
 </article>
 @endsection
