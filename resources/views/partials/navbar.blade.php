@@ -26,7 +26,7 @@
       </div>
       <div class="flex flex-1 items-center  sm:items-stretch sm:justify-start">
         <div class="flex ms-10">
-          <a href="/"><img class="h-12 w-auto" src="./assets/images/logo-icon.png" alt="Your Company"></a>
+          <a href="/"><img class="h-12 w-auto" src="{{ asset('assets/images/logo-icon.png') }}" alt="Your Company"></a>
         </div>
 
         <div class="hidden sm:ml-6 sm:flex items-center ">
@@ -60,7 +60,7 @@
             x-transition:leave-end="opacity-0 scale-95"
             class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 ring-1 shadow-lg ring-black/5 focus:outline-hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
               <!-- Active: "bg-gray-100 outline-hidden", Not Active: "" -->
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+              <a href="/dashboard" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Dashboard</a>
               <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
               <form action="/logout" method="POST">
                 @csrf

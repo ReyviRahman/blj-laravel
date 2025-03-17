@@ -25,7 +25,11 @@
   @if ($posts->count())
     <div class="bayang rounded mt-5">
       <div class="flex flex-col ">
-        <img src="https://picsum.photos/500/300?grayscale" alt="..." class="max-h-100 rounded object-fill">
+        @if ($posts[0]->image)
+          <img src="{{ asset('storage/' . $posts[0]->image) }}" class="max-h-100 rounded object-fill">
+        @else
+          <img src="https://picsum.photos/500/300?grayscale" alt="..." class="max-h-100 rounded object-fill">
+        @endif
       </div>
       <div class="p-4 text-center"> 
         <h1 class="text-2xl font-semibold"> <a href="/blog/{{ $posts[0]->slug }}">{{ $posts[0]->title }}</a></h1>
@@ -43,7 +47,11 @@
     @foreach ($posts->skip(1) as $post)
       <div class="bayang rounded">
         <div class="flex flex-col ">
-          <img src="https://picsum.photos/500/300?grayscale" alt="..." class="max-h-100 rounded object-fill">
+          @if ($post->image)
+            <img src="{{ asset('storage/' . $post->image) }}" class="max-h-100 rounded object-fill">
+          @else
+            <img src="https://picsum.photos/500/300?grayscale" alt="..." class="max-h-100 rounded object-fill">
+          @endif
         </div>
         <div class="p-4 text-center"> 
           <h1 class="text-2xl font-semibold"> <a href="/blog/{{ $post->slug }}">{{ $post->title }}</a></h1>

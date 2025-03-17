@@ -77,7 +77,11 @@
   </div>
   
   <div class="flex flex-col mt-5 mb-5">
-    <img src="https://picsum.photos/500/300?grayscale" alt="..." class="max-h-100 rounded object-fill">
+    @if ($post->image)
+      <img src="{{ asset('storage/' . $post->image) }}" class="max-h-100 rounded object-fill">
+    @else
+      <img src="https://picsum.photos/500/300?grayscale" alt="..." class="max-h-100 rounded object-fill">
+    @endif
   </div>
   {!! $post->body !!}
 </article>

@@ -11,7 +11,11 @@
     after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] 
     after:bg-gray-600 after:transition-all after:duration-300 hover:after:w-full">{{ $post->category->name }}</a> </p>
   <div class="flex flex-col mt-5 mb-5">
-    <img src="https://picsum.photos/500/300?grayscale" alt="..." class="max-h-100 rounded object-fill">
+    @if ($post->image)
+      <img src="{{ asset('storage/' . $post->image) }}" alt="..." class="max-h-100 rounded object-fill">
+    @else
+      <img src="https://picsum.photos/500/300?grayscale" alt="..." class="max-h-100 rounded object-fill">
+    @endif
   </div>
   <p class="mt-2">{!! $post->body !!}</p>
 </article>
