@@ -2,10 +2,11 @@
 
 @section('content')
 <div>
-  <h1 class="text-3xl">Create New Post</h1>
+  <h1 class="text-3xl">Edit Post</h1>
 </div>
 
-<form method="POST" action="/dashboard/posts">
+<form method="POST" action="/dashboard/posts/{{ $post->slug }}">
+  @method('put')
   @csrf
   <div class="space-y-12">
     <div class="border-b border-gray-900/10 pb-12">
@@ -13,7 +14,7 @@
         <div class="sm:col-span-3">
           <label for="title" class="block text-sm/6 font-medium text-gray-900">Title</label>
           <div class="mt-2">
-            <input type="text" name="title" id="title" value="{{ old('title') }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 @error('title') !outline-red-500 @enderror ">
+            <input type="text" name="title" id="title" value="{{ old('title', $post->title) }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 @error('title') !outline-red-500 @enderror ">
           </div>
           @error('title') 
             <span class="text-red-500 text-sm">{{ $message }}</span>
@@ -23,7 +24,7 @@
         <div class="sm:col-span-3">
           <label for="slug" class="block text-sm/6 font-medium text-gray-900">Slug</label>
           <div class="mt-2">
-            <input type="text" name="slug" id="slug" value="{{ old('slug') }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 @error('slug') !outline-red-500 @enderror">
+            <input type="text" name="slug" id="slug" value="{{ old('slug', $post->slug) }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 @error('slug') !outline-red-500 @enderror">
           </div>
           @error('slug') 
             <span class="text-red-500 text-sm">{{ $message }}</span>
@@ -32,7 +33,7 @@
 
         <div class="col-span-full">
           <label id="listbox-label" class="block text-sm/6 font-medium text-gray-900">Category</label>
-          <div x-data="{ isOpen: false, selected: '{{ old('category_name', $categories->first()->name) }}', nilai: '{{ old('category_id', $categories->first()->id) }}' }" class="relative mt-2">
+          <div x-data="{ isOpen: false, selected: '{{ old('category_name', $post->category->name) }}', nilai: '{{ old('category_id', $post->category_id) }}' }" class="relative mt-2">
             <button type="button" @click="isOpen = !isOpen" class="grid w-full cursor-default grid-cols-1 rounded-md bg-white py-1.5 pr-2 pl-3 text-left text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
               <span class="col-start-1 row-start-1 flex items-center gap-1 pr-6 ps-2">
                 <iconify-icon icon="material-symbols:category-outline" width="24" height="24"></iconify-icon>
@@ -59,7 +60,7 @@
 
         <div class="col-span-full">
           <label for="body" class="block text-sm/6 font-medium text-gray-900">Body</label>
-          <input id="body" type="hidden" name="body" value="{{ old('body') }}">
+          <input id="body" type="hidden" name="body" value="{{ old('body', $post->body) }}">
           <trix-editor input="body"></trix-editor>
           @error('body') 
             <span class="text-red-500 text-sm">{{ $message }}</span>

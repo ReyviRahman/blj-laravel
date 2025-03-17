@@ -14,10 +14,12 @@
 <body class="dark:bg-neutral-800 bg-neutral-100 dark:text-white">
   <x-sidebar />
   <main class="dashboard-main">
+    
     <x-navbaradmin />
     <div class="dashboard-main-body">
       @yield('content')
     </div>
+    
     {{-- <footer class="d-footer">
       <div class="flex items-center justify-between gap-3">
           <p class="mb-0">© 2025 Nupet. All Rights Reserved.</p>
