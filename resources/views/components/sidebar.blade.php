@@ -23,6 +23,15 @@
                     <span>My Posts</span>
                 </a>
             </li>
+            @can('admin')
+            <li class="sidebar-menu-group-title">Administrator</li>
+            <li>
+                <a href="/dashboard/categories" class="{{ request() -> is('dashboard/categories*') ? 'bg-gray-900 text-white!' : '' }}">
+                    <iconify-icon icon="material-symbols:category-search-rounded" width="24" height="24"></iconify-icon>
+                    <span>Categories</span>
+                </a>
+            </li>
+            @endcan
         </ul>
     </div>
 </aside>
